@@ -1,0 +1,180 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        FullTime fulltime = new FullTime("Ghadah",500,1,"IT manger","BC");
+        PartTime Parttime = new FullTime("Ghadah",250,1,"IT manger","diploma");
+       
+
+    }
+
+}
+
+
+public class Employee  {
+    private String Name;
+    private int Salary;
+    private int Experience;
+    private String Postion;
+    private String Education_level;
+
+    public Employee() {}
+
+    public Employee(String name, int Salary,  int Experience,String Postion, String Education_level) {
+        super();
+        Name = name;
+        this.Salary = Salary;
+        this.Experience= Experience;
+        this.Postion= Postion;
+        this.Education_level= Education_level;
+    }
+
+
+    public String getName() {
+        return Name;
+    }
+    public void setName(String name) {
+        Name = name;
+    }
+    public int getSalary() {
+
+
+        return Salary;
+    }
+    public void setSalary(int Salary) {
+        this.Salary = Salary;
+    }
+
+
+
+    public int getExperience() {
+        return Experience;
+    }
+
+    public void setExperience(int Experience) {
+        this.Experience = Experience;
+    }
+    public gender getPostion() {
+        return Postion;
+    }
+
+    public void setPostion(String Postion) {
+        this.Postion = Postion;
+    }
+
+  public gender getEducation_level() {
+        return Education_level;
+    }
+
+    public void setEducation_level(String Education_level) {
+        this.Education_level = Education_level;
+    }
+
+}
+
+
+
+
+public class PartTime extends Employee {
+    private int salary;
+    private int bonus;
+
+
+
+
+    public PartTime(int salary, int bonus,String name,  int Experience,String Postion, String Education_level) {
+        super(name,Experience, Postion ,Education_level);
+        this.salary = salary;
+        this.bonus = bonus;
+    }
+
+    public int getSalary() {
+          if(Education_level=="BC"){
+            double salary=500;
+            salary=(salary)+(salary*5%*Experience);
+        }
+        else{
+            double salary=250;
+            salary=(salary)+(salary*5%*Experience);
+        }
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+      
+    }
+
+
+
+
+    public int getBonus() {
+         bonus= (salary*1.5%);
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+         
+    }
+
+    @Override
+    public float calcEarnings() {
+
+        return this.getSalary()+this.getBonus();
+    }
+
+}
+
+
+public class FullTime extends Employee {
+    private int salary;
+    private int bonus;
+
+
+
+
+    public FullTime(int salary, int bonus,String name,  int Experience,String Postion, String Education_level) {
+        super(name,Experience, Postion ,Education_level);
+        this.salary = salary;
+        this.bonus = bonus;
+    }
+
+    public int getSalary() {
+          if(Education_level=="BC"){
+            double salary=500;
+            salary=(salary)+(salary*5%*Experience);
+        }
+        else{
+            double salary=250;
+            salary=(salary)+(salary*5%*Experience);
+        }
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+      
+    }
+
+
+
+
+    public int getBonus() {
+         bonus= (salary*3%);
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+         
+    }
+
+    @Override
+    public float calcEarnings() {
+
+        return this.getSalary()+this.getBonus();
+    }
+
+}
